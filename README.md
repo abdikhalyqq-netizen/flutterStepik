@@ -1,17 +1,19 @@
-# flutter_application_2
+# Instagram Progress App
 
-A new Flutter project.
+I made this project while learning Flutter through Stepik and with the help of AI.
 
-## Getting Started
+During this project, I practiced:
 
-This project is a starting point for a Flutter application.
+* StatefulWidget
+* setState()
+* Timer and Timer.periodic
+* LinearProgressIndicator
+* Row and Column
+* Container
+* Image and AssetImage
+* BoxDecoration
+* ElevatedButton
+* FloatingActionButton
+* SizedBox
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project helped me practice Flutter basics and understand how to make a simple interactive app with a loading progress bar.
