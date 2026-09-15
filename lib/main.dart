@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +14,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool _loading = false;
   double _progressValue = 0.0;
-
   @override
   void initState() {
     _loading = false;
@@ -29,6 +26,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.blue,
         appBar: AppBar(
           backgroundColor: Colors.indigo,
           title: Text(
@@ -36,13 +34,13 @@ class _MyAppState extends State<MyApp> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
-              fontWeight: FontWeight(500),
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
-        backgroundColor: Colors.blue,
         body: Center(
           child: Container(
+            padding: EdgeInsets.all(30),
             child: _loading
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -52,44 +50,41 @@ class _MyAppState extends State<MyApp> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 38,
-                          fontWeight: FontWeight(700),
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                      Container(
-                        child: Image(
-                          image: AssetImage('assets/images/inst.jpeg'),
-                        ),
-                      ),
+                      Image(image: AssetImage("assets/images/inst.jpeg")),
                       Text(
                         "My Instagram",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
-                          fontWeight: FontWeight(700),
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       LinearProgressIndicator(
                         value: _progressValue,
-                        color: const Color.fromARGB(255, 20, 20, 22),
+                        color: Colors.black,
                       ),
                       Text(
-                        "you have ${_progressValue * 100} seconds",
+                        "Progress: ${_progressValue * 100}%",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
-                          fontWeight: FontWeight(700),
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ],
                   )
                 : Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "kalaisyyn?",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 40,
-                          fontWeight: FontWeight(700),
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       Container(
@@ -122,16 +117,15 @@ class _MyAppState extends State<MyApp> {
                         child: ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              _loading = !_loading;
-
-                              _updateProgress();
+                              _loading = true;
+                              _progressValue = 1.0;
                             });
                           },
                           child: Text(
                             "See my Instagram",
                             style: TextStyle(
                               fontSize: 20,
-                              fontWeight: FontWeight(800),
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ),
@@ -143,27 +137,13 @@ class _MyAppState extends State<MyApp> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
-              _loading = !_loading;
-              _updateProgress();
+              _loading = true;
+              _progressValue = 1.0;
             });
           },
           child: Icon(Icons.present_to_all),
         ),
       ),
     );
-  }
-
-  void _updateProgress() {
-    const oneSec = const Duration(seconds: 1);
-    Timer.periodic(oneSec, (Timer t) {
-      setState(() {
-        _progressValue += 0.2;
-        if (_progressValue.toStringAsFixed(1) == '1.0') {
-          _loading = false;
-          _progressValue = 0.0;
-          return;
-        }
-      });
-    });
   }
 }
