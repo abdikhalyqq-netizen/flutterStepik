@@ -43,7 +43,6 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Colors.blue,
         body: Center(
           child: Container(
-            padding: EdgeInsets.all(30),
             child: _loading
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
